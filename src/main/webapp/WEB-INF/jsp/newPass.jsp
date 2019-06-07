@@ -18,7 +18,7 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">Renitialiser mot de passe</div>
 			<div class="panel-body">
-				<form action="/Client/getPass" method="post" enctype="multipart/form-data">
+				<form action="Client/getPass" method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<label class="control-label">Login: </label>
 						<input type="email"  name="email" class="form-control" placeholder="Email"/>

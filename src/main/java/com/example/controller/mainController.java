@@ -12,10 +12,10 @@ import com.example.entities.Client;
 @RequestMapping
 public class mainController {
 	
-	@GetMapping("/index")
+	@GetMapping("")
 	public String index() {
 		
-		return "index";
+		return "redirect:/Session/listcs";
 	}
 	@RequestMapping(value="/login")
 	public String login(){

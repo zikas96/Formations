@@ -56,7 +56,7 @@ public class ClientController {
  
         
         emailSender.send(message);
-        return "Redirect:/login";
+        return "redirect:/login";
         
     }
 

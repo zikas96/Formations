@@ -38,10 +38,10 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li  class="nav-item">
-      	<a class="nav-link" href="/Course/listc">Cours <span class="sr-only">(current)</span></a>
+      	<a class="nav-link" href="Course/listc">Cours <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Session/listcs">Sessions</a>
+        <a class="nav-link" href="Session/listcs">Sessions</a>
       </li>
 
  
@@ -56,7 +56,7 @@
 <div class="container mySpace">
 		<div class="row">
 		<div class="col-md-3">
-		<form action="/Session/listcs" class="form-inline" name="dropDownCities">
+		<form action="Session/listcs" class="form-inline" name="dropDownCities">
 	        <i style="color:#343a40; padding-right:10px;font-size: 25px;" class="fas fa-thumbtack"></i>
 	        <div class="form-group mb-2">
 	         <select class="form-control" style="height:calc(2.25rem + 17px); width:100px;" name="city" id="cityName" onchange="document.dropDownCities.submit()">
@@ -71,7 +71,7 @@
 	     </form>
 	     </div>
 	     <div class="col-md-3">
-	     <form action="/Session/listcs" class="form-inline" name="filterByDate">
+	     <form action="Session/listcs" class="form-inline" name="filterByDate">
 	     	<i style="color:#343a40; padding-right:10px;font-size: 25px;" class="far fa-calendar-alt"></i>
 	        <div class="form-group mb-2">
 	         <input type="date" id="datepicker" width="200" class="form-control" name="date" onchange="document.filterByDate.submit()" placeholder="" />

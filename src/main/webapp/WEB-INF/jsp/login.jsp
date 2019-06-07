@@ -18,7 +18,7 @@
 		<div class="panel panel-primary">
 			<div class="panel-heading">Authentification</div>
 			<div class="panel-body">
-				<form action="/login" method="post">
+				<form action="login" method="post">
 					<div class="form-group">
 						<label class="control-label">Login: </label>
 						<input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus/>
@@ -33,10 +33,10 @@
 						<button type="submit" class="btn btn-primary">Login</button>
 					</div>
 					<div>
-						<a href="/Client/registerClient">Insription</a>
+						<a href="Client/registerClient">Insription</a>
 					</div>
 					<div>
-						<a href="/Mdp">Mot de pass oublié</a>
+						<a href="Mdp">Mot de pass oublié</a>
 					</div>
 				</form>
 			</div>

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
@@ -17,17 +18,27 @@ import javax.persistence.ManyToOne;
 @Entity
 public class CourseSession implements Serializable{
 	@Id@GeneratedValue
+	@Column(name="ID")
 	private Long id;
+	
+	@Column(name="START_DATE")
 	private LocalDate startDate;
+	
+	@Column(name="END_DATE")
 	private LocalDate endDate;
+	
+	@Column(name="MAX")
 	private int number;
 
 	@ManyToOne
 	@JoinColumn(name="LOCATION_ID")
 	private Location locationId;
+	
 	@ManyToOne
-	@JoinColumn(name="COURSE_ID")
+	@JoinColumn(name="COURSE_CODE")
 	private Course courseId;
+	
+	
 	@ManyToMany(mappedBy="courseSessions")
 	private Collection<Client> clients;
 

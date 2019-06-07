@@ -38,10 +38,10 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li  class="nav-item">
-      	<a class="nav-link" href="/Course/listc">Cours <span class="sr-only">(current)</span></a>
+      	<a class="nav-link" href="Course/listc">Cours <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/Session/listcs">Sessions</a>
+        <a class="nav-link" href="Session/listcs">Sessions</a>
       </li>
 
  
