@@ -87,7 +87,7 @@ public class CourseSessionController {
 			collections.add(cs);
 			client.setCourseSessions(collections);
 			clientMetier.addClient(client);
-			sendEmailInscription(client, cs);
+			//sendEmailInscription(client, cs);
 		return "redirect:listcs";
 	}
 	
