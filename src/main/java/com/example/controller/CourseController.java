@@ -1,10 +1,13 @@
 package com.example.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +38,18 @@ public class CourseController {
 		model.addAttribute("pageCourante",p);
 		model.addAttribute("name", mc);
 		return "listc";
+	}
+	
+	@GetMapping("/register")
+	public String formAddCourse(Model model) {
+		model.addAttribute("course", new Course());
+		return "registerCourse";
+	}
+	@GetMapping("/registrerCourse")
+	public String addCourse(Model model,@Valid Course cr,
+			BindingResult bindingResult) {
+		courseMetier.addCourse(cr);
+		return "redirect:listc";
 	}
 	
 

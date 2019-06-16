@@ -53,9 +53,11 @@ public class CourseSessionController {
 	public String listCourse(Model model,
 			@RequestParam(name="page",defaultValue="0") int p,
 			@RequestParam(name="city",defaultValue="") String city,
+			@RequestParam(name="name",defaultValue="") String mc,
 			@RequestParam(name="date",required=false) @DateTimeFormat(iso = ISO.DATE) LocalDate date) {
-			if (city!=null) {
-				Page<CourseSession> pageCourseSessions = courseSessionMetier.SearchByCity(city, new PageRequest(p, 5));
+			
+			if (date==null) {
+				Page<CourseSession> pageCourseSessions = courseSessionMetier.SearchWithoutDate("%"+city+"%","%"+mc+"%", new PageRequest(p, 5));
 				int pagesCount = pageCourseSessions.getTotalPages();
 				int [] pages=new int[pagesCount];
 				for(int i=0;i<pagesCount;i++) pages[i] =i;
@@ -63,17 +65,23 @@ public class CourseSessionController {
 				model.addAttribute("pageCourseSessions",pageCourseSessions);
 				model.addAttribute("pageCourante",p);
 				model.addAttribute("city", city);
+				model.addAttribute("date", date);
+				model.addAttribute("name", mc);
+				
 			}
-			if (date!=null) {
-				Page<CourseSession> pageCourseSessions = courseSessionMetier.SearchByDate(date, new PageRequest(p, 5));
+			else{
+				Page<CourseSession> pageCourseSessions = courseSessionMetier.SearchByAll("%"+city+"%","%"+mc+"%", date, new PageRequest(p, 5));
 				int pagesCount = pageCourseSessions.getTotalPages();
 				int [] pages=new int[pagesCount];
 				for(int i=0;i<pagesCount;i++) pages[i] =i;
 				model.addAttribute("pages", pages);
 				model.addAttribute("pageCourseSessions",pageCourseSessions);
 				model.addAttribute("pageCourante",p);
+				model.addAttribute("city", city);
 				model.addAttribute("date", date);
+				model.addAttribute("name", mc);
 			}
+			model.addAttribute("clientId", clientMetier.findByEmail((String)clientMetier.getLoggedClient().get("username")));
 		List<Location> locations= locationMetier.listLocation();
 		model.addAttribute("locations", locations);
 		return "listcs";

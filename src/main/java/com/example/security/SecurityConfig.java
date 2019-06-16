@@ -37,15 +37,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		 * page pour qu'on puisse creer un compte, se loger.
 		 * apres avoir authentifier vous etes dirige directement vers la page d'authantification
 		 */
-		http
-		.csrf()
-		.disable()
-		.authorizeRequests().antMatchers("/Session/inscription").authenticated()
+/*		http
+		.authorizeRequests().antMatchers("/**").authenticated()
 		.and()
 		.formLogin()
 		.loginPage("/login")
 		.permitAll()
-		.defaultSuccessUrl("/Course/Index");
+		.defaultSuccessUrl("/Course/Index");*/
+		http
+		.csrf()
+		.disable()
+		.authorizeRequests().antMatchers("/Session/inscription","/Session/listcs").authenticated()
+		.and()
+		.formLogin()
+		.loginPage("/login")
+		.permitAll()
+		.defaultSuccessUrl("/Session/listcs");
 		
 		
 		

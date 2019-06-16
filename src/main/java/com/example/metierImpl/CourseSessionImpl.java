@@ -48,4 +48,16 @@ public class CourseSessionImpl implements CourseSessionMetier {
 		return courseSessionRepository.sumClient(idCourseSession);
 	}
 
+	@Override
+	public Page<CourseSession> SearchByAll(String city, String mc, LocalDate date, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return courseSessionRepository.cherchertout(city, date, mc, pageable);
+	}
+
+	@Override
+	public Page<CourseSession> SearchWithoutDate(String city, String mc, Pageable pageable) {
+		// TODO Auto-generated method stub
+		return courseSessionRepository.chercherSansDate(city, mc, pageable);
+	}
+
 }

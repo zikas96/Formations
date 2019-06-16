@@ -16,4 +16,6 @@ public interface CourseSessionMetier {
 	public Page<CourseSession> listCourseSession(Pageable pageable);
 	public Optional<CourseSession> findById(Long id);
 	public int sumClient(Long idCourseSession);
+	public Page<CourseSession> SearchByAll(String city,String mc,LocalDate date,Pageable pageable);
+	public Page<CourseSession> SearchWithoutDate(String city,String mc,Pageable pageable);
 }

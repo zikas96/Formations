@@ -10,5 +10,6 @@ import com.example.entities.Course;
 public interface CourseMetier {
 	public Page<Course> SearchByTitle(String title,Pageable pageable);
 	public List<Course> all();	
+	public Course addCourse(Course c);
 	
 }

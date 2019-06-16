@@ -26,7 +26,7 @@
 <script src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" />"></script>
 <script src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" />"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Liste des session</title>
 </head>
 <header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -54,8 +54,8 @@
 </header>
 <body>
 <div class="container mySpace">
-		<div class="row">
-		<div class="col-md-3">
+<div class="row">
+		<div class="col-md-10">
 		<form action="/Session/listcs" class="form-inline" name="dropDownCities">
 	        <i style="color:#343a40; padding-right:10px;font-size: 25px;" class="fas fa-thumbtack"></i>
 	        <div class="form-group mb-2">
@@ -68,16 +68,20 @@
 				
 			</select>
 	        </div>
-	     </form>
-	     </div>
-	     <div class="col-md-3">
-	     <form action="/Session/listcs" class="form-inline" name="filterByDate">
+	       <div class="col-md-1"></div>
 	     	<i style="color:#343a40; padding-right:10px;font-size: 25px;" class="far fa-calendar-alt"></i>
 	        <div class="form-group mb-2">
 	         <input type="date" id="datepicker" width="200" class="form-control" name="date" onchange="document.filterByDate.submit()" placeholder="" />
-	        </div>
+	      </div>
+	      <div class="col-md-1"></div>
+	     <div class="form-group mb-2">
+	         <input type="text" class="form-control" name="name" placeholder="Search Title" />
+	         <input type="submit" value="Search"  class="btn btn-primary"/>
+	      </div>
+	     
 	     </form>
 	     </div>
+
 	     </div>
 	    <script>
         $('#datepicker').datepicker({
@@ -110,13 +114,45 @@
 								<td>${ses.number}</td>
 								<td>${ses.courseId.title}</td>
 								<td>${ses.locationId.city}</td>
-								<td><a type="button" class="btn btn-dark" style="color:white; cursor:pointer" href="inscription?codeS=${ses.id}">S'inscrire</a></td>
+								<c:set var="contains" value="false" />
+								<c:forEach items="${ses.clients}" var="p" >
+							        
+							           <c:if test="${p eq clientId}">
+							           	<c:set var="contains" value="true" />
+							           </c:if>				        
+     							</c:forEach>
+     							<c:if test="${contains eq false}">
+     								<td><a type="button" class="btn btn-dark" style="color:white; cursor:pointer" href="inscription?codeS=${ses.id}">S'inscrire</a></td>
+     							</c:if>
+     							<c:if test="${contains eq true}">
+     								<td>Déja Inscrit</td>
+     							</c:if>
 							</tr>
 						</c:forEach>
 						
 					</tbody>
 
 				</table>
+			</div>
+						<div class="container">
+				<ul class="nav nav-pills">
+				
+				<c:forEach items="${pages}" var="p">
+			        <c:choose>
+			           <c:when test="${p==pageCourante}">
+			             <span class="current"> ${p }</span>
+			           </c:when>
+			           <c:otherwise>
+			             <span class="autrePage">
+			               <a href="listcs?page=${p}&name=${name}" >${p }</a>
+			             </span>
+			           </c:otherwise>
+			        </c:choose>
+        
+     			</c:forEach>
+
+
+				</ul>
 			</div>
 		</div>
 	</div>

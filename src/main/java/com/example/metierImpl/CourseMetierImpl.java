@@ -31,6 +31,13 @@ public class CourseMetierImpl implements CourseMetier{
 	}
 
 
+	@Override
+	public Course addCourse(Course c) {
+		// TODO Auto-generated method stub
+		return courseRepository.save(c);
+	}
+
+
 
 
 	

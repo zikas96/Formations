@@ -26,7 +26,7 @@
 <script src="<c:url value="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" />"></script>
 <script src="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" />"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Liste des course</title>
 </head>
 <header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -69,6 +69,7 @@
 						  <th></th>	
 						  <th>Code</th>
 				          <th>Title</th>
+				          <th><a href="register"><input type="submit" value="Create"  class="btn btn-primary"/></a></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -85,15 +86,22 @@
 			</div>
 			<div class="container">
 				<ul class="nav nav-pills">
-				<c:forEach items="${pages}" var="p">
-					<li>
-						<a href="listc(page=${p},name=${motCle})}">${p}</a>
-					</li>
 				
-				</c:forEach>
-<%-- 					<li th:each="p:${pages}" th:class="${p==pageCourante}?active:''">
-						<a th:text="${p}" th:href="@{Index(page=${p},motCle=${motCle})}"></a>
-					</li> --%>
+				<c:forEach items="${pages}" var="p">
+			        <c:choose>
+			           <c:when test="${p==pageCourante}">
+			             <span class="current"> ${p }</span>
+			           </c:when>
+			           <c:otherwise>
+			             <span class="autrePage">
+			               <a href="listc?page=${p}&name=${name}" >${p }</a>
+			             </span>
+			           </c:otherwise>
+			        </c:choose>
+        
+     			</c:forEach>
+
+
 				</ul>
 			</div>
 		</div>
