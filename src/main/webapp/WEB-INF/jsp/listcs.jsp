@@ -44,7 +44,9 @@
         <a class="nav-link" href="#">Sessions</a>
       </li>
 
- 
+	  <li class="nav-item" style="float: right">
+        <a class="nav-link" href="/login?logout">Log out</a>
+      </li>
     </ul>
     
   </div>

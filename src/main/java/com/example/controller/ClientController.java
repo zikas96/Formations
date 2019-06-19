@@ -52,7 +52,7 @@ public class ClientController {
         
         message.setTo(cl.getEmail());
         message.setSubject("Renitialisation de votre mot de passe");
-        message.setText("Bonjour \n Votre mot de pass est : "+ clientMetier.findByEmail(cl.getEmail()).getEmail());
+        message.setText("Bonjour \n Votre mot de pass est : "+ clientMetier.findByEmail(cl.getEmail()).getPassword());
  
         
         emailSender.send(message);

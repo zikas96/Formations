@@ -39,7 +39,7 @@ public class Lo54ProjetApplication {
 		Location loc1 = new Location("Mulhouse");
 		Location loc2 = new Location("Strasbourg");
 		Location loc3 = new Location("Versailles");
-		Location loc4 = new Location("Montbélliard");
+		Location loc4 = new Location("Montbelliard");
 		locationMetier.save(loc1);
 		locationMetier.save(loc2);
 		locationMetier.save(loc3);

@@ -90,12 +90,12 @@ public class CourseSessionController {
 	@GetMapping("/inscription")
 	public String inscription(Model model, @RequestParam(name="codeS",defaultValue="")Long codeS){
 			Client client= clientMetier.findByEmail((String)clientMetier.getLoggedClient().get("username"));
-			Collection<CourseSession> collections= new HashSet<>();
+			Collection<CourseSession> collections= client.getCourseSessions();
 			CourseSession cs = courseSessionMetier.findById(codeS).get();
 			collections.add(cs);
 			client.setCourseSessions(collections);
 			clientMetier.addClient(client);
-			//sendEmailInscription(client, cs);
+			sendEmailInscription(client, cs);
 		return "redirect:listcs";
 	}
 	
