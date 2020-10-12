@@ -8,7 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.example.entities.Course;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+@RepositoryRestResource
 public interface CourseRepository extends JpaRepository<Course, String>{
 	
 	@Query("select cr from Course cr where cr.title like :x")

@@ -3,43 +3,32 @@ package com.example.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @SuppressWarnings({"serial"})
 @Entity
+@Table(name = "client")
 public class Client implements Serializable{
 	@Id
 	@GeneratedValue
-	@Column(name="ID")
 	private Long id;
-	
-	@Column(name="LASTNAME")
+
 	private String lastName;
-	
-	@Column(name="FIRSTNAME")
 	private String firstName;
 	
-	@Column(name="ADDRESS")
+
 	private String adresse;
 	
-	@Column(name="PHONE")
+
 	private String phone;
 	
-	@Column(name="EMAIL")
+
 	private String email;
 	
 	private boolean actived;
 	private String password;
 	
 	@ManyToOne
-	@JoinColumn(name="role_client")
 	private Role role;
 	
 	@ManyToMany

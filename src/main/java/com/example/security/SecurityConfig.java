@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		auth.jdbcAuthentication()
 		.dataSource(dataSource)
 		.usersByUsernameQuery("select email as principal ,password as credentials, true from client where email=?")
-		.authoritiesByUsernameQuery("select cl.email as principal, cl.role_client as role  from client cl"
+		.authoritiesByUsernameQuery("select cl.email as principal, cl.role_role as role  from client cl"
 				+ " where cl.email=?")
 		.passwordEncoder(NoOpPasswordEncoder.getInstance());
 	}

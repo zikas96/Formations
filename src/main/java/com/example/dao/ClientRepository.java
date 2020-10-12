@@ -5,7 +5,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.example.entities.Client;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+@RepositoryRestResource
 public interface ClientRepository extends JpaRepository<Client, Long>{
 	
 	@Query("select cl from Client cl where cl.email like :x")

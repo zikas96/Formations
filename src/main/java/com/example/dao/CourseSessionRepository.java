@@ -9,7 +9,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.example.entities.CourseSession;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+@RepositoryRestResource
 public interface CourseSessionRepository extends JpaRepository<CourseSession, Long>{
 	
 	@Query("select crs from CourseSession crs where crs.startDate<=:d and crs.endDate>=:d")
